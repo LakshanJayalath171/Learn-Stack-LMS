@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180" width="900" height="180" role="img" aria-labelledby="title desc">
+  <title id="title">Learn Stack Navbar Logo</title>
+  <desc id="desc">Geometric LS mark with Learn Stack wordmark on a transparent background.</desc>
+
+  <defs>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#67E7E0"/>
+      <stop offset="100%" stop-color="#2ED8CF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- LS geometric monogram -->
+  <g transform="translate(24 20)">
+    <!-- L -->
+    <path d="M0 35 L64 0 L64 52 L43 64 L43 113 L0 138 Z" fill="#F5FFFF"/>
+    <path d="M0 138 L43 113 L132 164 L88 180 L0 138 Z" fill="url(#teal)"/>
+
+    <!-- S -->
+    <path d="M137 39 L202 76 L158 101 L116 77 L116 122 L202 171 L158 196 L72 147 L72 95 L116 120 L116 74 Z"
+          fill="#F5FFFF"
+          transform="translate(0 -18)"/>
+    <path d="M116 74 L137 62 L202 99 L158 124 L116 100 Z"
+          fill="url(#teal)"
+          transform="translate(0 -18)"/>
+    <path d="M72 129 L116 154 L116 174 L202 223 L158 248 L72 199 Z"
+          fill="url(#teal)"
+          transform="translate(0 -48)"/>
+  </g>
+
+  <!-- Divider -->
+  <rect x="285" y="48" width="2" height="84" rx="1" fill="#2ED8CF" opacity=".65"/>
+
+  <!-- Wordmark -->
+  <g font-family="Inter, Arial, Helvetica, sans-serif" font-size="54" font-weight="700" letter-spacing="9">
+    <text x="330" y="111" fill="#F5FFFF">LEARN</text>
+    <text x="595" y="111" fill="#2ED8CF">STACK</text>
+  </g>
+</svg>
