@@ -1,26 +1,633 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================================
+   LEARNSTACK DESIGN TOKENS
+   ========================================================= */
+
+@theme {
+  /* Brand */
+  --color-primary: #2ed8cf;
+  --color-primary-dark: #14a9a2;
+  --color-primary-light: #67e7e0;
+
+  /* Light Theme */
+  --color-background: #f7fafa;
+  --color-surface: #ffffff;
+
+  /* Dark Theme */
+  --color-dark: #050708;
+  --color-dark-surface: #0b1112;
+  --color-dark-card: #111a1b;
+
+  /* Typography */
+  --color-text: #172021;
+  --color-text-secondary: #5f6b6c;
+  --color-text-on-dark: #f5ffff;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+/* Main application/page heading */
+@utility heading-page {
+  font-size: 1.5rem;          /* 24px */
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+}
+
+.dark .heading-page {
+  color: var(--color-text-on-dark);
+}
+
+/* Large marketing / hero heading */
+@utility heading-display {
+  font-size: 3.75rem;         /* 60px */
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-dark),
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Primary heading used throughout the LMS */
+@utility heading-primary {
+  font-size: 1.5rem;          /* 24px */
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+/* Course title */
+@utility course-title {
+  font-size: 1.125rem;         /* 18px */
+  line-height: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.dark .course-title {
+  color: var(--color-text-on-dark);
+}
+
+/* Lesson title */
+@utility lesson-title {
+  font-size: 1.125rem;         /* 18px */
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.dark .lesson-title {
+  color: var(--color-text-on-dark);
+}
+
+/* Section heading - "About this lesson" */
+@utility heading-section {
+  font-size: 1rem;             /* 16px */
+  line-height: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.dark .heading-section {
+  color: var(--color-text-on-dark);
+}
+
+/* Small subsection heading */
+@utility heading-subsection {
+  font-size: 0.875rem;         /* 14px */
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.dark .heading-subsection {
+  color: var(--color-text-on-dark);
+}
+
+/* =========================================================
+   BODY TEXT
+   ========================================================= */
+
+/* Normal paragraph */
+@utility body-text {
+  font-size: 0.875rem;         /* 14px */
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+/* Small paragraph */
+@utility body-small {
+  font-size: 0.8125rem;        /* 13px */
+  line-height: 1.25rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+/* Very small supporting text */
+@utility body-xs {
+  font-size: 0.75rem;          /* 12px */
+  line-height: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+/* =========================================================
+   LABELS / META / NAVIGATION
+   ========================================================= */
+
+/* Uppercase labels such as "SECTION 01" */
+@utility label {
+  font-size: 0.625rem;         /* 10px */
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+/* Small metadata */
+@utility meta-text {
+  font-size: 0.6875rem;        /* 11px */
+  line-height: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+/* Navigation */
+@utility nav-text {
+  font-size: 0.75rem;          /* 12px */
+  line-height: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+/* Active navigation */
+@utility nav-active {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Course progress text */
+@utility progress-text {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   SPECIAL TEXT
+   ========================================================= */
+
+/* Gradient text */
+@utility text-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-dark),
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Primary accent text */
+@utility text-accent {
+  color: var(--color-primary);
+}
+
+/* Muted text */
+@utility text-muted {
+  color: var(--color-text-secondary);
+}
+
+/* Text designed for dark backgrounds */
+@utility text-on-dark {
+  color: var(--color-text-on-dark);
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+@utility card {
+  background-color: var(--color-surface);
+  border: 1px solid rgb(23 32 33 / 0.08);
+  border-radius: 0.75rem;
+}
+
+.dark .card {
+  background-color: var(--color-dark-card);
+  border-color: rgb(245 255 255 / 0.08);
+}
+
+/* Larger content card */
+@utility content-card {
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-surface);
+  border: 1px solid rgb(23 32 33 / 0.08);
+}
+
+.dark .content-card {
+  background-color: var(--color-dark-card);
+  border-color: rgb(245 255 255 / 0.08);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+
+  height: 2.25rem;
+  padding-inline: 0.875rem;
+
+  border-radius: 0.5rem;
+
+  background-color: var(--color-primary);
+  color: #050708;
+
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+
+  transition:
+    background-color 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Small button */
+@utility btn-sm {
+  height: 2rem;
+  padding-inline: 0.75rem;
+  font-size: 0.6875rem;
+}
+
+/* =========================================================
+   COURSE UI
+   ========================================================= */
+
+/* Course content sidebar title */
+@utility course-sidebar-title {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.dark .course-sidebar-title {
+  color: var(--color-text-on-dark);
+}
+
+/* Course section title */
+@utility course-section-title {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+.dark .course-section-title {
+  color: var(--color-text-on-dark);
+}
+
+/* Course lesson item */
+@utility course-lesson {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+/* Active course lesson */
+@utility course-lesson-active {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+@utility progress-track {
+  width: 100%;
+  height: 0.25rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: rgb(95 107 108 / 0.2);
+}
+
+@utility progress-bar {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-dark),
+    var(--color-primary)
+  );
+}
+
+/* =========================================================
+   DIVIDERS
+   ========================================================= */
+
+@utility divider {
+  border-color: rgb(95 107 108 / 0.15);
+}
+
+.dark .divider {
+  border-color: rgb(245 255 255 / 0.08);
+}
+
+/* =========================================
+   REUSABLE BACKGROUNDS
+   ========================================= */
+
+/* Main page background */
+@utility bg-app {
+  background-color: var(--color-background);
+}
+
+.dark .bg-app {
+  background-color: var(--color-dark);
+}
+
+/* Card / component background */
+@utility bg-surface {
+  background-color: var(--color-surface);
+}
+
+.dark .bg-surface {
+  background-color: var(--color-dark-surface);
+}
+
+/* Dark card */
+@utility bg-card {
+  background-color: var(--color-surface);
+}
+
+.dark .bg-card {
+  background-color: var(--color-dark-card);
+}
+
+/* Primary background */
+@utility bg-primary {
+  background-color: var(--color-primary);
+}
+
+/* Primary hover background */
+@utility bg-primary-hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Light primary background */
+@utility bg-primary-soft {
+  background-color: var(--color-primary-light);
+}
+
+/* =========================================
+   BUTTON BACKGROUNDS
+   ========================================= */
+
+/* Main button */
+@utility btn-bg-primary {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+}
+
+.btn-bg-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Secondary button */
+@utility btn-bg-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-bg-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+}
+
+/* Soft primary button */
+@utility btn-bg-soft {
+  background-color: rgb(46 216 207 / 0.12);
+  color: var(--color-primary-dark);
+}
+
+.dark .btn-bg-soft {
+  background-color: rgb(46 216 207 / 0.10);
+  color: var(--color-primary-light);
+}
+
+/* Dark button */
+@utility btn-bg-dark {
+  background-color: var(--color-dark);
+  color: var(--color-text-on-dark);
+}
+
+.btn-bg-dark:hover {
+  background-color: var(--color-dark-surface);
+}
+
+/* =========================================
+   SPECIAL BACKGROUNDS
+   ========================================= */
+
+/* Gradient primary */
+@utility bg-primary-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark),
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+}
+
+/* Dark gradient */
+@utility bg-dark-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-dark),
+    var(--color-dark-surface),
+    var(--color-dark-card)
+  );
+}
+
+/* Primary glow background */
+@utility bg-primary-glow {
+  background:
+    radial-gradient(
+      circle at center,
+      rgb(46 216 207 / 0.18),
+      transparent 70%
+    );
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
 }
