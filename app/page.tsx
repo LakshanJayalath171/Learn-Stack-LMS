@@ -1,7 +1,9 @@
+import Toggle from "@/components/Toggle-Button";
+
 export default function Home() {
   return (
     <div>
-      <h1>Hello world!</h1>
+      <Toggle/>
     </div>
   );
 }
