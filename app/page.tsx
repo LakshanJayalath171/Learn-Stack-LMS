@@ -1,9 +1,10 @@
-import Toggle from "@/components/Toggle-Button";
+import Main_Navbar from "@/components/Main_Navbar";
+
 
 export default function Home() {
   return (
     <div>
-      <Toggle/>
+      <Main_Navbar/>
     </div>
   );
 }

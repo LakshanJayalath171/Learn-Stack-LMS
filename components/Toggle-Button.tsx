@@ -8,8 +8,9 @@ const Toggle = () => {
     const {theme,setTheme}=useTheme();
 
   return (
-    <div >
+    <div className={`border border-solid flex items-center justify-center p-1 rounded-full ${theme==="dark"?"border-[#2ED8CF]":"border-black"}`}>
         <Button
+          className={'cursor-pointer'}
           variant="outline"
           size="icon"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

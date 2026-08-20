@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Poppins } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: [ "200", "300", "400", "500", "600", "700", "800"],
 });
 
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${poppins.variable} h-full antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} h-full antialiased`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
