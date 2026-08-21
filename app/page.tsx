@@ -1,4 +1,5 @@
 import Course_card from "@/components/Course_card";
+import Footer from "@/components/Footer";
 import Main_Navbar from "@/components/Main_Navbar";
 import { courses, offers, profileImages } from "@/public";
 import { PlayCircle, Star } from "lucide-react";
@@ -141,6 +142,8 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      <Footer/>
     </div>
   );
 }
