@@ -1,6 +1,6 @@
 import Course_card from "@/components/Course_card";
 import Main_Navbar from "@/components/Main_Navbar";
-import { courses, profileImages } from "@/public";
+import { courses, offers, profileImages } from "@/public";
 import { PlayCircle, Star } from "lucide-react";
 import Image from "next/image";
 
@@ -102,7 +102,7 @@ export default function Home() {
       {/* Courses section  */}
 
       <div className="px-10 py-10">
-        <h1 className="text-primary font-bold text-2xl">Top Rated Courses</h1>
+        <h1 className="text-primary font-bold text-4xl">Top Rated Courses</h1>
         <p className="text-secondary font-light">
           Discover the most popular courses on our platform
         </p>
@@ -120,6 +120,26 @@ export default function Home() {
             />
           ))}
         </div>
+      </div>
+
+      <div className="flex items-center justify-center px-10 py-6">
+        <div className="text-center">
+          <h1 className="text-primary font-bold text-4xl px-10">
+            What We Offer
+          </h1>
+          <p className="text-secondary font-light px-10">
+            Explore our wide range of courses and learning resources <br/> to enhance
+            your skills and knowledge.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-4 gap-3">
+        {offers.map((items, index) => (
+          <div key={index} className="flex items-center justify-center py-4">
+            <Image src={items} alt={`Offer ${index + 1}`} width={800} height={400} />
+          </div>
+        ))}
       </div>
     </div>
   );
