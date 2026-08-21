@@ -1,4 +1,5 @@
 import Toggle from "@/components/Toggle-Button";
+import Link from "next/link";
 import Image from 'next/image'
 import React from 'react'
 
@@ -12,10 +13,18 @@ const Main_Navbar = () => {
 
         <div>
             <ul className='flex items-center justify-center gap-8 text-lg font-semibold'>
-                <li className="text-secondary">Platform</li>
-                <li className="text-secondary">Courses</li>
-                <li className="text-secondary">About us</li>
-                <li className="text-secondary">Commmunity</li>
+                <li >
+                    <Link href="/" className="text-secondary"  >Home</Link>
+                </li>
+                <li className="text-secondary">
+                    <Link href="/courses" className="text-secondary"  >Courses</Link>
+                </li>
+                <li className="text-secondary">
+                    <Link href="/about-us" className="text-secondary"  >About us</Link>
+                </li>
+                <li className="text-secondary">
+                    <Link href="/community" className="text-secondary"  >Community</Link>
+                </li>
             </ul>
         </div>
 
