@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: [ "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,11 +18,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} h-full antialiased`}>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(() => {
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${plusJakartaSans.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (function () {
               try {
                 const key = "learnstack-theme";
                 const storedTheme = localStorage.getItem(key);
@@ -32,12 +36,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
                 document.documentElement.classList.toggle("dark", theme === "dark");
                 document.documentElement.style.colorScheme = theme;
-              } catch (error) {}
-            })();`,
-          }}
-        />
-      </head>
-      <body className="min-h-full flex flex-col">
+              } catch (error) {
+                document.documentElement.style.colorScheme = "light";
+              }
+            })();
+          `}
+        </Script>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

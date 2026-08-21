@@ -22,27 +22,33 @@ function getStoredTheme(): Theme {
 	}
 
 	const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-
 	if (storedTheme === "light" || storedTheme === "dark") {
 		return storedTheme;
 	}
 
-	return window.matchMedia("(prefers-color-scheme: dark)").matches
-		? "dark"
-		: "light";
+	return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 function applyTheme(theme: Theme) {
 	const root = document.documentElement;
-
 	root.classList.toggle("dark", theme === "dark");
 	root.style.colorScheme = theme;
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-	const [theme, setThemeState] = useState<Theme>(getStoredTheme);
+	const [theme, setThemeState] = useState<Theme>("light");
 
 	useEffect(() => {
+		const initialTheme = getStoredTheme();
+		setThemeState(initialTheme);
+		applyTheme(initialTheme);
+	}, []);
+
+	useEffect(() => {
+		if (typeof window === "undefined") {
+			return;
+		}
+
 		applyTheme(theme);
 		window.localStorage.setItem(THEME_STORAGE_KEY, theme);
 	}, [theme]);

@@ -215,7 +215,6 @@
   font-weight: 600;
 
   transition:
-    background-color 150ms ease,
     border-color 150ms ease,
     color 150ms ease;
 }
@@ -308,11 +307,8 @@
 /* Dark secondary button */
 
 .dark .btn-secondary {
-
   background-color: transparent;
-
   color: #2ED8CF;
-
   border-color: #2ED8CF;
 }
 
@@ -320,10 +316,7 @@
 /* Dark hover */
 
 .dark .btn-secondary:hover {
-
-  background-color: #2ED8CF;
   border-color: #2ED8CF;
-
   color: #FFFFFF;
 }
 
