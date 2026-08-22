@@ -10,12 +10,12 @@
      LIGHT THEME
      ======================================================= */
 
-  --color-light-background: #F4F8F7;
+  --color-light-background: #F7FAF9;
   --color-light-surface: #FFFFFF;
 
   --color-light-text-primary: #141D1E;
   --color-light-text-secondary: #556162;
-  --color-light-text-special:  #006A65;
+  --color-light-text-special: #006A65;
 
 
   /* =======================================================
@@ -31,45 +31,108 @@
   --color-dark-text-special: #2ED8CF;
 
 
-
   /* =======================================================
      BRAND
      ======================================================= */
 
   --color-brand: #2ED8CF;
   --color-brand-dark: #006A65;
+  --color-brand-light: #67E7E0;
 
 
   /* =======================================================
      BUTTON COLORS
      ======================================================= */
 
-  /* Dark */
   --color-button-dark-primary: #2ED8CF;
   --color-button-dark-secondary: #2ED8CF;
 
-  /* Light */
   --color-button-light-primary: #006A65;
   --color-button-light-secondary: #006A65;
 }
 
 
 /* =========================================================
-   GLOBAL BACKGROUNDS
+   APPLICATION BACKGROUND
    ========================================================= */
 
-/* Main application background */
+/*
+   LIGHT MODE
+
+   White + soft green/teal ambient background.
+
+   This background is intentionally more colorful than a
+   normal white background so the Apple glass has something
+   to blur and reflect.
+*/
 
 @utility bg-app {
-  background-color: var(--color-light-background);
+
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgb(46 216 207 / 0.16),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 95% 15%,
+      rgb(103 231 224 / 0.14),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 50% 55%,
+      rgb(46 216 207 / 0.06),
+      transparent 38%
+    ),
+
+    radial-gradient(
+      circle at 90% 95%,
+      rgb(0 106 101 / 0.08),
+      transparent 32%
+    ),
+
+    #F7FAF9;
 }
+
+
+/* =========================================================
+   DARK APPLICATION BACKGROUND
+   ========================================================= */
 
 .dark .bg-app {
-  background-color: var(--color-dark-background);
+
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgb(46 216 207 / 0.10),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 95% 20%,
+      rgb(20 169 162 / 0.08),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 50% 100%,
+      rgb(46 216 207 / 0.05),
+      transparent 35%
+    ),
+
+    #0B1112;
 }
 
 
-/* Surface */
+/* =========================================================
+   SURFACE
+   ========================================================= */
 
 @utility bg-surface {
   background-color: var(--color-light-surface);
@@ -80,7 +143,9 @@
 }
 
 
-/* Card */
+/* =========================================================
+   CARD
+   ========================================================= */
 
 @utility bg-card {
   background-color: var(--color-light-surface);
@@ -91,7 +156,9 @@
 }
 
 
-/* Explicit backgrounds */
+/* =========================================================
+   EXPLICIT BACKGROUNDS
+   ========================================================= */
 
 @utility bg-light {
   background-color: var(--color-light-background);
@@ -110,17 +177,6 @@
    THEME-AWARE TEXT
    ========================================================= */
 
-/*
-   These are the main text utilities you should normally use.
-
-   text-primary
-   text-secondary
-   text-special
-*/
-
-
-/* Primary */
-
 @utility text-primary {
   color: var(--color-light-text-primary);
 }
@@ -130,19 +186,14 @@
 }
 
 
-/* Secondary */
-
 @utility text-secondary {
   color: var(--color-light-text-secondary);
-  
 }
 
 .dark .text-secondary {
   color: var(--color-dark-text-secondary);
 }
 
-
-/* Special / Accent */
 
 @utility text-special {
   color: #2ED8CF;
@@ -187,16 +238,6 @@
    PRIMARY BUTTON
    ========================================================= */
 
-/*
-   Light:
-   Background = #006A65
-   Text       = black
-
-   Dark:
-   Background = #2ED8CF
-   Text       = white
-*/
-
 @utility btn-primary {
 
   display: inline-flex;
@@ -216,12 +257,18 @@
   font-weight: 600;
 
   transition:
+    background-color 150ms ease,
     border-color 150ms ease,
     color 150ms ease;
 }
 
 
-/* Dark primary button */
+.btn-primary:hover {
+
+  background-color: #00534F;
+  border-color: #00534F;
+}
+
 
 .dark .btn-primary {
 
@@ -232,17 +279,8 @@
 }
 
 
-/* Light hover */
-
-.btn-primary:hover {
-  background-color: #00534F;
-  border-color: #00534F;
-}
-
-
-/* Dark hover */
-
 .dark .btn-primary:hover {
+
   background-color: #67E7E0;
   border-color: #67E7E0;
 
@@ -253,20 +291,6 @@
 /* =========================================================
    SECONDARY BUTTON
    ========================================================= */
-
-/*
-   Light:
-   Background = transparent
-   Border     = #006A65
-   Text       = #006A65
-   Hover text = black
-
-   Dark:
-   Background = transparent
-   Border     = #2ED8CF
-   Text       = #2ED8CF
-   Hover text = white
-*/
 
 @utility btn-secondary {
 
@@ -294,8 +318,6 @@
 }
 
 
-/* Light hover */
-
 .btn-secondary:hover {
 
   background-color: #006A65;
@@ -305,19 +327,21 @@
 }
 
 
-/* Dark secondary button */
-
 .dark .btn-secondary {
+
   background-color: transparent;
+
   color: #2ED8CF;
+
   border-color: #2ED8CF;
 }
 
 
-/* Dark hover */
-
 .dark .btn-secondary:hover {
+
+  background-color: #2ED8CF;
   border-color: #2ED8CF;
+
   color: #FFFFFF;
 }
 
@@ -490,7 +514,8 @@
   background: linear-gradient(
     135deg,
     #006A65,
-    #2ED8CF
+    #2ED8CF,
+    #67E7E0
   );
 }
 
@@ -504,7 +529,8 @@
   background: linear-gradient(
     90deg,
     #006A65,
-    #2ED8CF
+    #2ED8CF,
+    #67E7E0
   );
 
   -webkit-background-clip: text;
@@ -545,84 +571,353 @@
   border-color: #2ED8CF;
 }
 
+
 /* =========================================================
    APPLE LIQUID GLASS
    ========================================================= */
 
+/*
+   LIGHT MODE
+
+   The glass uses:
+   - translucent white
+   - teal tint
+   - strong backdrop blur
+   - subtle inner highlights
+*/
+
 @utility apple {
 
-  /* Transparent glass surface */
-  background: rgba(255, 255, 255, 0.55);
+  position: relative;
 
-  /* Glass border */
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  isolation: isolate;
 
-  /* Apple-style glass blur */
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  overflow: hidden;
 
-  /* Soft depth */
+  background:
+    linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.62),
+      rgb(255 255 255 / 0.34) 45%,
+      rgb(46 216 207 / 0.08)
+    );
+
+  border: 1px solid rgb(255 255 255 / 0.72);
+
+  backdrop-filter:
+    blur(30px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(30px)
+    saturate(180%);
+
+  border-radius: 1rem;
+
   box-shadow:
-    0 8px 32px rgba(20, 29, 30, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 
-  /* Smooth rounded glass shape */
-  
+    /* Outer shadow */
+    0 12px 40px rgb(20 29 30 / 0.08),
 
-  /* Smooth transitions */
+    /* Secondary shadow */
+    0 4px 12px rgb(20 29 30 / 0.04),
+
+    /* Top glass reflection */
+    inset 0 1px 0 rgb(255 255 255 / 0.90),
+
+    /* Bottom reflection */
+    inset 0 -1px 0 rgb(255 255 255 / 0.35),
+
+    /* Very subtle teal glow */
+    0 0 0 1px rgb(46 216 207 / 0.03);
+
   transition:
-    background-color 200ms ease,
-    border-color 200ms ease,
-    box-shadow 200ms ease,
-    transform 200ms ease;
+    background 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
 }
 
 
 /* =========================================================
-   APPLE LIQUID GLASS — DARK THEME
+   APPLE GLASS — LIGHT REFLECTION
+   ========================================================= */
+
+.apple::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      circle at 0% 0%,
+      rgb(255 255 255 / 0.85),
+      transparent 35%
+    ),
+
+    radial-gradient(
+      circle at 100% 100%,
+      rgb(46 216 207 / 0.10),
+      transparent 40%
+    );
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   APPLE GLASS — DARK MODE
    ========================================================= */
 
 .dark .apple {
 
-  background: rgba(17, 26, 27, 0.55);
+  background:
+    linear-gradient(
+      135deg,
+      rgb(17 26 27 / 0.58),
+      rgb(17 26 27 / 0.42) 50%,
+      rgb(46 216 207 / 0.05)
+    );
 
-  border: 1px solid rgba(186, 202, 199, 0.14);
+  border: 1px solid rgb(186 202 199 / 0.14);
 
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter:
+    blur(30px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(30px)
+    saturate(180%);
 
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    0 12px 40px rgb(0 0 0 / 0.30),
+
+    0 4px 12px rgb(0 0 0 / 0.18),
+
+    inset 0 1px 0 rgb(255 255 255 / 0.09),
+
+    inset 0 -1px 0 rgb(255 255 255 / 0.03),
+
+    0 0 0 1px rgb(46 216 207 / 0.02);
 }
 
 
 /* =========================================================
-   APPLE LIQUID GLASS — HOVER
+   APPLE GLASS — DARK REFLECTION
+   ========================================================= */
+
+.dark .apple::before {
+
+  background:
+
+    radial-gradient(
+      circle at 0% 0%,
+      rgb(255 255 255 / 0.09),
+      transparent 35%
+    ),
+
+    radial-gradient(
+      circle at 100% 100%,
+      rgb(46 216 207 / 0.07),
+      transparent 40%
+    );
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   APPLE GLASS — LIGHT HOVER
    ========================================================= */
 
 .apple:hover {
 
-  background: rgba(255, 255, 255, 0.68);
+  background:
+    linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.72),
+      rgb(255 255 255 / 0.42) 45%,
+      rgb(46 216 207 / 0.11)
+    );
 
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgb(255 255 255 / 0.90);
 
   box-shadow:
-    0 12px 40px rgba(20, 29, 30, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+    0 16px 50px rgb(20 29 30 / 0.11),
+
+    0 5px 15px rgb(20 29 30 / 0.05),
+
+    inset 0 1px 0 rgb(255 255 255 / 0.95),
+
+    inset 0 -1px 0 rgb(255 255 255 / 0.40),
+
+    0 0 25px rgb(46 216 207 / 0.05);
 }
 
+
+/* =========================================================
+   APPLE GLASS — DARK HOVER
+   ========================================================= */
 
 .dark .apple:hover {
 
-  background: rgba(17, 26, 27, 0.68);
+  background:
+    linear-gradient(
+      135deg,
+      rgb(17 26 27 / 0.68),
+      rgb(17 26 27 / 0.50) 50%,
+      rgb(46 216 207 / 0.07)
+    );
 
-  border-color: rgba(46, 216, 207, 0.22);
+  border-color: rgb(46 216 207 / 0.22);
 
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    0 16px 50px rgb(0 0 0 / 0.36),
+
+    0 5px 15px rgb(0 0 0 / 0.22),
+
+    inset 0 1px 0 rgb(255 255 255 / 0.11),
+
+    inset 0 -1px 0 rgb(255 255 255 / 0.04),
+
+    0 0 25px rgb(46 216 207 / 0.04);
 }
 
 
+/* =========================================================
+   APPLE GLASS — CONTENT LAYER
+   ========================================================= */
 
+.apple > * {
+
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   OPTIONAL: STRONGER GLASS
+   ========================================================= */
+
+@utility apple-strong {
+
+  background:
+    linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.72),
+      rgb(255 255 255 / 0.42) 50%,
+      rgb(46 216 207 / 0.10)
+    );
+
+  backdrop-filter:
+    blur(35px)
+    saturate(190%);
+
+  -webkit-backdrop-filter:
+    blur(35px)
+    saturate(190%);
+}
+
+
+.dark .apple-strong {
+
+  background:
+    linear-gradient(
+      135deg,
+      rgb(17 26 27 / 0.65),
+      rgb(17 26 27 / 0.45) 50%,
+      rgb(46 216 207 / 0.07)
+    );
+}
+
+
+/* =========================================================
+   OPTIONAL DOTTED BACKGROUND
+   ========================================================= */
+
+@utility dotted {
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgb(85 97 98 / 0.22) 1px,
+      transparent 1px
+    );
+
+  background-size: 20px 20px;
+}
+
+
+.dark .dotted {
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgb(186 202 199 / 0.16) 1px,
+      transparent 1px
+    );
+}
+
+
+/* =========================================================
+   OPTIONAL GREEN APPLE BACKGROUND
+   ========================================================= */
+
+@utility bg-green-apple {
+
+  min-height: 100vh;
+
+  background:
+
+    radial-gradient(
+      circle at 10% 10%,
+      rgb(46 216 207 / 0.14),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 90% 20%,
+      rgb(103 231 224 / 0.11),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 50% 90%,
+      rgb(0 106 101 / 0.07),
+      transparent 35%
+    ),
+
+    #FFFFFF;
+}
+
+
+.dark .bg-green-apple {
+
+  background:
+
+    radial-gradient(
+      circle at 10% 10%,
+      rgb(46 216 207 / 0.09),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 90% 20%,
+      rgb(20 169 162 / 0.07),
+      transparent 30%
+    ),
+
+    #0B1112;
+}
