@@ -1,7 +1,7 @@
 import Course_card from "@/components/Course_card";
 import Footer from "@/components/Footer";
 import Main_Navbar from "@/components/Main_Navbar";
-import { courses, offers, profileImages } from "@/public";
+import { sample_courses, offers, profileImages } from "@/constant";
 import { PlayCircle, Star } from "lucide-react";
 import Image from "next/image";
 
@@ -109,7 +109,7 @@ export default function Home() {
         </p>
 
         <div className="grid grid-cols-4 gap-3">
-          {courses.map((items, index) => (
+          {sample_courses.map((items, index) => (
             <Course_card
               key={index}
               title={items.title}

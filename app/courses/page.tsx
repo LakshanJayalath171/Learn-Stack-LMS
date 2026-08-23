@@ -1,6 +1,9 @@
+import Main_course_card from "@/components/Main_course_card";
 import Main_Navbar from "@/components/Main_Navbar";
 import { Search } from "lucide-react";
-import React from "react";
+import { sample_courses } from "@/constant";
+
+
 
 const courses = () => {
   return (
@@ -138,6 +141,22 @@ const courses = () => {
                 <option className="text-primary apple">Highest Rated</option>
               </select>
             </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2">
+            {sample_courses.map((course, index) => (
+            <Main_course_card
+              key={index}
+              title={course.title}
+              price={course.price}
+              level={course.level}
+              instructor={course.instructor.name}
+              duration={course.duration}
+              category={course.category}
+              thumbnail={course.thumbnail}
+              ratings={course.rating}
+            />
+          ))}
           </div>
           
         </div>

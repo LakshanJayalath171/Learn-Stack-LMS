@@ -7,7 +7,7 @@ export const profileImages=[
 
 // sample courses
 
-export const courses = [
+export const sample_courses = [
   {
     id: "course_001",
     title: "React Native Full Course",
