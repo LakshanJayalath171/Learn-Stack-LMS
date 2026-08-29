@@ -1,13 +1,53 @@
-export const profileImages=[
+import { LayoutTemplate , GraduationCap , BadgeCheck, Bookmark, Trophy , Cog} from 'lucide-react';
+
+const profileImages=[
     "/images/profiles.jpeg",
     "/images/profiles2.jpeg",
     "/images/profiles3.jpg",
     "/images/profiles4.jpeg",
 ]
 
-// sample courses
+const students_nav_link = [
+  {
+    id: 1,
+    title: "Dashboard",
+    link: "/user/student",
+    icon: LayoutTemplate,
+  },
+  {
+    id: 2,
+    title: "My Courses",
+    link: "/user/student/my-learning",
+    icon: GraduationCap,
+  },
+  {
+    id: 3,
+    title: "My Certificates",
+    link: "/user/student/certification",
+    icon: BadgeCheck,
+  },
+  {
+    id: 4,
+    title: "Wishlist",
+    link: "/user/student/wishlist",
+    icon: Bookmark,
+  },
+  {
+    id: 5,
+    title: "Achievements",
+    link: "/user/student/archivements",
+    icon: Trophy,
+  },
+  {
+    id: 6,
+    title: "Settings",
+    link: "/user/student/settings",
+    icon: Cog,
+  }
+]
 
-export const sample_courses = [
+// sample courses
+const sample_courses = [
   {
     id: "course_001",
     title: "React Native Full Course",
@@ -138,9 +178,11 @@ export const sample_courses = [
 ];
 
 // offers section 
-export const offers = [
+const offers = [
   "/images/1.png",
   "/images/2.png",
   "/images/3.png",
   "/images/4.png",
 ]
+
+export { profileImages, students_nav_link, sample_courses, offers };
