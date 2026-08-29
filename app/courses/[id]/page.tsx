@@ -1,13 +1,34 @@
-"use client"
+"use client";
 
-import Main_Navbar from '@/components/Main_Navbar';
-import { Award, BookA, Clock, Globe2, Heart, Star, Users, CircleCheck, Video, BracketsIcon, DownloadCloudIcon, InfinityIcon, Smartphone, MedalIcon, ShoppingCart, GraduationCapIcon } from 'lucide-react';
-import { useParams } from 'next/navigation';
-import Image from 'next/image';
-import Small_footer from '@/components/Small_footer';
+import Main_Navbar from "@/components/Main_Navbar";
+import {
+  Award,
+  BookA,
+  Clock,
+  Globe2,
+  Heart,
+  Star,
+  Users,
+  CircleCheck,
+  Video,
+  BracketsIcon,
+  DownloadCloudIcon,
+  InfinityIcon,
+  Smartphone,
+  MedalIcon,
+  ShoppingCart,
+  GraduationCapIcon,
+  ChevronDown,
+  ChevronRight,
+  PlayCircleIcon,
+  FileText,
+} from "lucide-react";
+import { useParams } from "next/navigation";
+import Image from "next/image";
+import Small_footer from "@/components/Small_footer";
 
 const Course_details = () => {
-    const {id} = useParams();
+  const { id } = useParams();
   return (
     <div>
       <Main_Navbar />
@@ -115,10 +136,16 @@ const Course_details = () => {
 
               <hr className="text-special my-3" />
 
-              <div className='flex items-center justify-center gap-6'>
-                <p className='text-secondary cursor-pointer hover:underline text-[12px]'>Share</p>
-                <p className='text-secondary cursor-pointer hover:underline text-[12px]'>Gift this course</p>
-                <p className='text-secondary cursor-pointer hover:underline text-[12px]'>Apply coupen</p>
+              <div className="flex items-center justify-center gap-6">
+                <p className="text-secondary cursor-pointer hover:underline text-[12px]">
+                  Share
+                </p>
+                <p className="text-secondary cursor-pointer hover:underline text-[12px]">
+                  Gift this course
+                </p>
+                <p className="text-secondary cursor-pointer hover:underline text-[12px]">
+                  Apply coupen
+                </p>
               </div>
             </div>
           </div>
@@ -148,11 +175,79 @@ const Course_details = () => {
           {/* course content */}
 
           <div className="rounded-2xl p-4 apple mt-3">
-            <h2 className="text-primary font-bold">Course Content</h2>
-            <p className="text-secondary">
-              This is the course content section where you can list all the
-              topics and lessons.
-            </p>
+            <div className="flex items-center justify-between">
+              <h2 className="text-primary font-bold">Course Content</h2>
+              <p className="text-secondary font-light italic">
+                12 sections • 86 lectures • 24h 10m total length
+              </p>
+            </div>
+            {/* reusable component for display course content */}
+            <div className="apple w-full my-3 h-full px-4 py-2 rounded-[8px] cursor-pointer">
+              <div className="flex items-center justify-between w-full h-full">
+                <div className="flex items-center justify-center gap-2">
+                  {/* <ChevronDown className='text-special' /> */}
+                  <ChevronRight className="text-special" />
+                  <h2 className="text-white font-bold">
+                    Section 1: Introduction to Web Development
+                  </h2>
+                </div>
+                <div>
+                  <p className="text-secondary">5 lectures • 45m</p>
+                </div>
+              </div>
+
+              <div>
+                <hr className="text-special text-2xl my-2" />
+
+                <div className="flex items-center justify-between my-2">
+                  <div className="flex items-center justify-center gap-2">
+                    <PlayCircleIcon className="text-special text-[8px]" />
+                    <h2 className="text-primary font-semibold">
+                      Welcome to the Bootcamp!
+                    </h2>
+                  </div>
+
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-secondary">5m</p>
+                    <div className="px-2 rounded-2xl bg-primary-soft">
+                      Preview
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-center gap-2">
+                    <PlayCircleIcon className="text-special text-[8px]" />
+                    <h2 className="text-primary font-semibold">
+                      Welcome to the Bootcamp!
+                    </h2>
+                  </div>
+
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-secondary">5m</p>
+                    <div className="px-2 rounded-2xl bg-primary-soft">
+                      Preview
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between my-2">
+                  <div className="flex items-center justify-center gap-2">
+                    <FileText className="text-special text-[8px]" />
+                    <h2 className="text-primary font-semibold">
+                      Welcome to the Bootcamp!
+                    </h2>
+                  </div>
+
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-secondary">5m</p>
+                    <div className="px-2 rounded-2xl bg-primary-soft">
+                      Preview
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* about this course */}
@@ -233,24 +328,30 @@ const Course_details = () => {
       </div>
 
       <div className="flex items-center justify-center py-24">
-        <div className='text-center'>
+        <div className="text-center">
           <div className="flex items-center justify-center">
             <Image
-            src="/images/Logo.png"
-            alt="Learning Illustration"
-            width={250}
-            height={250}
-          />
+              src="/images/Logo.png"
+              alt="Learning Illustration"
+              width={250}
+              height={250}
+            />
           </div>
-          <h1 className='text-primary font-bold text-4xl'>Ready to start learning?</h1>
-          <p className="text-secondary my-3">Join thousands of students and transform your career today.</p>
-          <button className='btn-primary rounded-full px-4 py-2'>Get Started</button>
+          <h1 className="text-primary font-bold text-4xl">
+            Ready to start learning?
+          </h1>
+          <p className="text-secondary my-3">
+            Join thousands of students and transform your career today.
+          </p>
+          <button className="btn-primary rounded-full px-4 py-2">
+            Get Started
+          </button>
         </div>
       </div>
 
-      <Small_footer/>
+      <Small_footer />
     </div>
   );
-}
+};
 
-export default Course_details
+export default Course_details;
