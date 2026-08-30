@@ -32,7 +32,7 @@ const Student_sidebar = () => {
 
       {students_nav_link.map((link) => (
         <div key={link.id} className={`flex items-center justify-start gap-3 px-4 py-1 cursor-pointer rounded-lg mb-2 ${pathname == link.link ? "bg-primary-soft px-4 py-1 border-l-2 border-l-[#2ED8CF]" : ""}`}>
-          <Link href={link.link} className="flex items-center justify-center gap-3 py-1">
+          <Link href={`/student/123/${link.link}`} className="flex items-center justify-center gap-3 py-1">
             {link.icon && <link.icon className={pathname == link.link ? "text-special" : "text-secondary"} size={20} />}
             <h2 className={pathname == link.link ? "text-special" : "text-secondary"}>{link.title}</h2>
           </Link>

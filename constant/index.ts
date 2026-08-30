@@ -11,37 +11,37 @@ const students_nav_link = [
   {
     id: 1,
     title: "Dashboard",
-    link: "/user/student",
+    link: "",
     icon: LayoutTemplate,
   },
   {
     id: 2,
     title: "My Courses",
-    link: "/user/student/my-learning",
+    link: "/my-learning",
     icon: GraduationCap,
   },
   {
     id: 3,
     title: "My Certificates",
-    link: "/user/student/certification",
+    link: "/certification",
     icon: BadgeCheck,
   },
   {
     id: 4,
     title: "Wishlist",
-    link: "/user/student/wishlist",
+    link: "/wishlist",
     icon: Bookmark,
   },
   {
     id: 5,
     title: "Achievements",
-    link: "/user/student/archivements",
+    link: "/archivements",
     icon: Trophy,
   },
   {
     id: 6,
     title: "Settings",
-    link: "/user/student/settings",
+    link: "/settings",
     icon: Cog,
   }
 ]
