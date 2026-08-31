@@ -11,7 +11,7 @@ const students_nav_link = [
   {
     id: 1,
     title: "Dashboard",
-    link: "",
+    link: "/",
     icon: LayoutTemplate,
   },
   {
