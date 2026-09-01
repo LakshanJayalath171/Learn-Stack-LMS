@@ -1,4 +1,4 @@
-import { Trophy , Medal ,Flame,Star,Footprints,GraduationCap,CircleStar,CalendarSync,FileQuestionMark, BookOpenText, Users, CircleArrowRight} from 'lucide-react';
+import { Trophy , Medal ,Flame,Star,Footprints,GraduationCap,CircleStar,CircleCheck, CalendarSync,FileQuestionMark, BookOpenText, Users, CircleArrowRight} from 'lucide-react';
 import Image from 'next/image';
 import {
   Progress,
@@ -162,6 +162,96 @@ const archivements = () => {
             <div className="flex items-center justify-center p-2 bg-primary-soft rounded-full cursor-pointer">
               <CircleArrowRight className="text-special" />
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* all archivements section */}
+
+      <div className="mt-5">
+        <div className='flex items-center justify-between'>
+          <h1 className="text-primary font-bold text-2xl">All Achievements</h1>
+
+          <div className="flex items-center justify-start gap-2">
+            <div className='px-4 py-1 rounded-full bg-primary-soft cursor-pointer'>All</div>
+            <div className='px-4 py-1 rounded-full apple cursor-pointer'>Web Development</div>
+            <div className='px-4 py-1 rounded-full apple cursor-pointer'>Data Science</div>
+            <div className='px-4 py-1 rounded-full apple cursor-pointer'>UI/UX Design</div>
+            <div className='px-4 py-1 rounded-full apple cursor-pointer'>Marketing</div>
+          </div>
+        </div>
+
+        <div className='grid grid-cols-4 gap-2'>
+          <div className='apple rounded-2xl px-4 py-2 my-3'>
+            <div className="flex item-center justify-end">
+              <CircleCheck className="text-special" />
+            </div>
+
+            <div className="flex items-center justify-center bg-primary-soft p-2 rounded-full w-10 h-10">
+              <Footprints className="text-special" />
+            </div>
+
+            <div>
+              <h1 className='text-primary'>First Step</h1>
+              <p className='text-secondary font-light text-xs'>Completed your first lesson</p>
+
+              <p className='text-amber-500 my-3'>10 XP</p>
+            </div>
+
+          </div>
+
+          <div className='apple rounded-2xl px-4 py-2 my-3'>
+            <div className="flex item-center justify-end">
+              <CircleCheck className="text-special" />
+            </div>
+
+            <div className="flex items-center justify-center bg-primary-soft p-2 rounded-full w-10 h-10">
+              <GraduationCap className="text-special" />
+            </div>
+
+            <div>
+              <h1 className='text-primary'>First Course</h1>
+              <p className='text-secondary font-light text-xs'>Successfully finished a full course.</p>
+
+              <p className='text-amber-500 my-3'>50 XP</p>
+            </div>
+
+          </div>
+
+          <div className='apple rounded-2xl px-4 py-2 my-3'>
+            <div className="flex item-center justify-end">
+              <CircleCheck className="text-special" />
+            </div>
+
+            <div className="flex items-center justify-center bg-primary-soft p-2 rounded-full w-10 h-10">
+              <Medal className="text-special" />
+            </div>
+
+            <div>
+              <h1 className='text-primary'>Master Lerner</h1>
+              <p className='text-secondary font-light text-xs'>Complete 10 advanced courses.</p>
+
+              <p className='text-amber-500 my-3'>150 XP</p>
+            </div>
+
+          </div>
+
+          <div className='apple rounded-2xl px-4 py-2 my-3'>
+            <div className="flex item-center justify-end">
+              <CircleCheck className="text-special" />
+            </div>
+
+            <div className="flex items-center justify-center bg-primary-soft p-2 rounded-full w-10 h-10">
+              < CalendarSync className="text-special" />
+            </div>
+
+            <div>
+              <h1 className='text-primary'>Mr. Consistent</h1>
+              <p className='text-secondary font-light text-xs'>Maintain a 30-day learning streak.</p>
+
+              <p className='text-amber-500 my-3'>400 XP</p>
+            </div>
+
           </div>
         </div>
       </div>
