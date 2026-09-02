@@ -105,7 +105,7 @@ const sample_courses = [
       "Implement Authentication",
       "Publish mobile applications",
     ],
-    status: "Published",
+    status: "Pending",
   },
 
   {
@@ -137,7 +137,7 @@ const sample_courses = [
       "Manage application state",
       "Deploy mobile apps",
     ],
-    status: "Published",
+    status: "Draft",
   },
 
   {
