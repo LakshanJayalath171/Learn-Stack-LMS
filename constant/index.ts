@@ -1,4 +1,4 @@
-import { LayoutTemplate , GraduationCap , BadgeCheck, Bookmark, Trophy , Cog} from 'lucide-react';
+import { LayoutTemplate , GraduationCap , BadgeCheck, Bookmark, Trophy , Cog, FilePlay,CopyPlus,ChartNoAxesCombined} from 'lucide-react';
 
 const profileImages=[
     "/images/profiles.jpeg",
@@ -6,7 +6,35 @@ const profileImages=[
     "/images/profiles3.jpg",
     "/images/profiles4.jpeg",
 ]
+//navigation links for teachers
+const teachers_nav_link = [
+  {
+    id: 1,
+    title: "Dashboard",
+    link: "/",
+    icon: LayoutTemplate,
+  },
+  {
+    id: 2,
+    title: "My Courses",
+    link: "/my-courses",
+    icon: FilePlay,
+  },
+  {
+    id: 3,
+    title: "Create Course",
+    link: "/add-course",
+    icon: CopyPlus,
+  },
+  {
+    id: 4,
+    title: "Analytics",
+    link: "/analytics",
+    icon: ChartNoAxesCombined,
+  }
+]
 
+// navigation links for students
 const students_nav_link = [
   {
     id: 1,
@@ -194,4 +222,4 @@ const student_Settings_sidebar = [
   { id: 5, name: "Notifications" },
 ]
 
-export { profileImages, students_nav_link, sample_courses, offers ,student_Settings_sidebar};
+export { profileImages, students_nav_link, sample_courses, offers ,student_Settings_sidebar, teachers_nav_link };
