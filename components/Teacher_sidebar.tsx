@@ -23,7 +23,7 @@ const Teacher_sidebar = () => {
 
         <div>
           <h2 className="text-xl font-bold text-special">Alex dev</h2>
-          <p className="text-secondary">Web developer</p>
+          <p className="text-secondary">Instructor</p>
         </div>
       </div>
 
