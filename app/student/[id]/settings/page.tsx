@@ -6,6 +6,7 @@ import Profile from "@/components/Profile";
 import Privacy from "@/components/Privacy";
 import Account from "@/components/Account";
 import Notification from "@/components/Notification";
+import Devices from "@/components/Devices";
 
 const settings = () => {
 
@@ -33,6 +34,7 @@ const settings = () => {
             {selectedTab === "Profile" && <Profile />}
             {selectedTab === "Account" && <Account />}
             {selectedTab === "Privacy" && <Privacy />}
+            {selectedTab === "Device Management" && <Devices/>}
             {selectedTab === "Notification" && <Notification />}
           </div>
         </div>

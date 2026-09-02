@@ -153,7 +153,7 @@ const Account = () => {
         <div className="flex items-center justify-between">
 
           <div><p className="text-secondary font-light">Add an extra layer of security to your account by requiring more than just your password to sign in.</p></div>
-          <div className="flex items-center justify-center"><Switch id="2fa"/></div>
+          <div className="flex items-center justify-center p-3"><Switch id="2fa" /></div>
         </div>
       </div>
 

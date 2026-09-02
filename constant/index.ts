@@ -189,8 +189,9 @@ const offers = [
 const student_Settings_sidebar = [
   { id: 1, name: "Profile" },
   { id: 2, name: "Account" },
-  { id: 3, name: "Privacy"  },
-  { id: 4, name: "Notifications" },
+  { id: 3, name: "Device Management"  },
+  { id: 4, name: "Privacy"  },
+  { id: 5, name: "Notifications" },
 ]
 
 export { profileImages, students_nav_link, sample_courses, offers ,student_Settings_sidebar};

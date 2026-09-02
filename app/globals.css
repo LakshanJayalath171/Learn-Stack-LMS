@@ -49,9 +49,38 @@
 
   --color-button-light-primary: #006A65;
   --color-button-light-secondary: #006A65;
+
+  /* =======================================================
+     SHADCN / COMPONENT SEMANTIC COLORS
+     ======================================================= */
+  
+    --color-background: #FFFCF8;
+    --color-foreground: #15201F;
+  
+    --color-primary: #0D736D;
+    --color-primary-foreground: #FFFFFF;
+  
+    --color-input: #D5DDDB;
+  
+    --color-ring: #2ED8CF;
+  
+    --color-destructive: #DC2626;
+    --color-destructive-foreground: #FFFFFF;
 }
+.dark {
+  --color-background: #0B1112;
+  --color-foreground: #F5FFFF;
 
+  --color-primary: #2ED8CF;
+  --color-primary-foreground: #0B1112;
 
+  --color-input: #556162;
+
+  --color-ring: #2ED8CF;
+
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+}
 /* =========================================================
    GLOBAL BASE
    ========================================================= */
@@ -1075,3 +1104,4 @@ body {
 
     #0B1112;
 }
+
