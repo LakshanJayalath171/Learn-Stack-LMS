@@ -31,6 +31,12 @@ const teachers_nav_link = [
     title: "Analytics",
     link: "/analytics",
     icon: ChartNoAxesCombined,
+  },
+  {
+    id: 5,
+    title: "Settings",
+    link: "/settings",
+    icon: Cog,
   }
 ]
 
@@ -221,5 +227,188 @@ const student_Settings_sidebar = [
   { id: 4, name: "Privacy"  },
   { id: 5, name: "Notifications" },
 ]
+
+// course categories
+
+export const course_categories = [
+  {
+    id: "it",
+    name: "IT & Technology",
+    subCategories: [
+      "Web Development",
+      "Mobile App Development",
+      "Software Development",
+      "Game Development",
+      "Cybersecurity",
+      "Networking",
+      "Cloud Computing",
+      "DevOps",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Data Science",
+      "Database Management",
+      "Software Testing",
+      "UI/UX Design",
+      "IT Support",
+      "Programming Languages",
+    ],
+  },
+
+  {
+    id: "music",
+    name: "Music",
+    subCategories: [
+      "Eastern Music",
+      "Western Music",
+      "Classical Music",
+      "Singing",
+      "Guitar",
+      "Piano & Keyboard",
+      "Drums & Percussion",
+      "Violin",
+      "Music Production",
+      "DJ & Mixing",
+      "Music Theory",
+      "Songwriting",
+      "Composition",
+      "Audio Engineering",
+      "Sound Design",
+    ],
+  },
+
+  {
+    id: "design",
+    name: "Design & Creativity",
+    subCategories: [
+      "Graphic Design",
+      "UI/UX Design",
+      "Web Design",
+      "Logo Design",
+      "Branding",
+      "Illustration",
+      "Digital Art",
+      "3D Design",
+      "Motion Graphics",
+      "Animation",
+    ],
+  },
+
+  {
+    id: "business",
+    name: "Business & Entrepreneurship",
+    subCategories: [
+      "Entrepreneurship",
+      "Business Management",
+      "Marketing",
+      "Digital Marketing",
+      "Social Media Marketing",
+      "Sales",
+      "E-commerce",
+      "Freelancing",
+      "Leadership",
+      "Project Management",
+      "Startups",
+    ],
+  },
+
+  {
+    id: "finance",
+    name: "Finance & Accounting",
+    subCategories: [
+      "Accounting",
+      "Investing",
+      "Stock Market",
+      "Personal Finance",
+      "Financial Analysis",
+      "Bookkeeping",
+      "Economics",
+    ],
+  },
+
+  {
+    id: "languages",
+    name: "Languages",
+    subCategories: [
+      "English",
+      "Sinhala",
+      "Tamil",
+      "Japanese",
+      "Korean",
+      "Chinese",
+      "French",
+      "German",
+      "Spanish",
+    ],
+  },
+
+  {
+    id: "photography-video",
+    name: "Photography & Video",
+    subCategories: [
+      "Photography",
+      "Portrait Photography",
+      "Landscape Photography",
+      "Videography",
+      "Video Editing",
+      "Filmmaking",
+      "Cinematography",
+      "Color Grading",
+      "Motion Graphics",
+      "Content Creation",
+    ],
+  },
+
+  {
+    id: "personal-development",
+    name: "Personal Development",
+    subCategories: [
+      "Communication Skills",
+      "Public Speaking",
+      "Leadership",
+      "Productivity",
+      "Time Management",
+      "Critical Thinking",
+      "Problem Solving",
+      "Career Development",
+      "Interview Preparation",
+      "Study Skills",
+    ],
+  },
+
+  {
+    id: "academic",
+    name: "Academic",
+    subCategories: [
+      "Mathematics",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Computer Science",
+      "Engineering",
+      "History",
+      "Geography",
+      "Literature",
+      "Exam Preparation",
+      "Academic Writing",
+    ],
+  },
+
+  {
+    id: "lifestyle",
+    name: "Lifestyle & Hobbies",
+    subCategories: [
+      "Cooking",
+      "Baking",
+      "Gardening",
+      "Fashion",
+      "Makeup",
+      "Interior Design",
+      "DIY & Crafts",
+      "Drawing",
+      "Painting",
+      "Sewing",
+    ],
+  },
+] as const;
 
 export { profileImages, students_nav_link, sample_courses, offers ,student_Settings_sidebar, teachers_nav_link };
