@@ -1,7 +1,7 @@
 "use client"
 import * as React from "react"
 import { format } from "date-fns"
-import { ChevronDownIcon ,Tag , HandCoins, BanknoteCheck,WalletCards,Copy,Trash,Check} from "lucide-react"
+import { ChevronDownIcon ,Tag , HandCoins, BanknoteCheck,WalletCards,Trash,Wallet, Info} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 
@@ -222,88 +222,171 @@ const Pricing = () => {
         {/* coupen code section */}
 
         <div>
-          <div className="flex items-center justify-between apple rounded-2xl px-6 py-4 mt-3">
-            <div className="flex items-center gap-2">
-              <WalletCards className="text-special" />
-              <p className="text-secondary font-light">Coupon Code</p>
+          <div className="apple rounded-2xl px-6 py-4 mt-3">
+            <div className="flex items-center justify-between ">
+              <div className="flex items-center gap-2">
+                <WalletCards className="text-special" />
+                <p className="text-secondary font-light">Coupon Code</p>
+              </div>
+
+              <div>
+                <Dialog>
+                  <form>
+                    <DialogTrigger
+                      render={<Button variant="outline">Open Dialog</Button>}
+                    />
+                    <DialogContent className="sm:max-w-sm bg-black">
+                      <DialogHeader>
+                        <DialogTitle className="text-primary text-2xl font-bold">
+                          Add New Coupon
+                        </DialogTitle>
+                        <DialogDescription className="text-secondary font-light">
+                          Make changes to your profile here. Click save when
+                          you&apos;re done.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <FieldGroup>
+                        <Field>
+                          <Label htmlFor="name-1 text-secondary">
+                            Coupon Name
+                          </Label>
+                          <Input
+                            id="coupen-name"
+                            name="coupen_name"
+                            defaultValue="LAUNCH_30"
+                          />
+                        </Field>
+                        <Field>
+                          <Label htmlFor="username-1 text-secondary">
+                            Coupon Code
+                          </Label>
+                          <Input
+                            id="coupon-code"
+                            name="coupon_code"
+                            defaultValue="LAUNCH_30"
+                          />
+                        </Field>
+
+                        <Field>
+                          <Label htmlFor="username-1 text-secondary">
+                            Coupon Count
+                          </Label>
+                          <Input
+                            id="coupon-count"
+                            name="coupon_count"
+                            defaultValue="100"
+                          />
+                        </Field>
+
+                        <Field>
+                          <Label htmlFor="username-1 text-secondary">
+                            Discount
+                          </Label>
+                          <Input
+                            id="discount"
+                            name="discount"
+                            defaultValue="30"
+                          />
+                        </Field>
+                      </FieldGroup>
+                      <DialogFooter>
+                        <DialogClose
+                          render={
+                            <Button className="btn-primary cursor-pointer">
+                              Cancel
+                            </Button>
+                          }
+                        />
+                        <Button
+                          type="submit"
+                          className="btn-secondary cursor-pointer"
+                        >
+                          Save changes
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </form>
+                </Dialog>
+              </div>
             </div>
 
             <div>
-              <Dialog>
-                <form>
-                  <DialogTrigger
-                    render={<Button variant="outline">Open Dialog</Button>}
-                  />
-                  <DialogContent className="sm:max-w-sm bg-black">
-                    <DialogHeader>
-                      <DialogTitle className="text-primary text-2xl font-bold">Add New Coupon</DialogTitle>
-                      <DialogDescription className="text-secondary font-light">
-                        Make changes to your profile here. Click save when
-                        you&apos;re done.
-                      </DialogDescription>
-                    </DialogHeader>
-                    <FieldGroup>
-                      <Field>
-                        <Label htmlFor="name-1 text-secondary">Coupon Name</Label>
-                        <Input
-                          id="coupen-name"
-                          name="coupen_name"
-                          defaultValue="LAUNCH_30"
-                        />
-                      </Field>
-                      <Field>
-                        <Label htmlFor="username-1 text-secondary">Coupon Code</Label>
-                        <Input
-                          id="coupon-code"
-                          name="coupon_code"
-                          defaultValue="LAUNCH_30"
-                        />
-                      </Field>
-
-                      <Field>
-                        <Label htmlFor="username-1 text-secondary">Coupon Count</Label>
-                        <Input
-                          id="coupon-count"
-                          name="coupon_count"
-                          defaultValue="100"
-                        />
-                      </Field>
-
-                      <Field>
-                        <Label htmlFor="username-1 text-secondary">Discount</Label>
-                        <Input
-                          id="discount"
-                          name="discount"
-                          defaultValue="30"
-                        />
-                      </Field>
-                    </FieldGroup>
-                    <DialogFooter>
-                      <DialogClose
-                        render={<Button className="btn-primary cursor-pointer">Cancel</Button>}
-                      />
-                      <Button type="submit" className="btn-secondary cursor-pointer">Save changes</Button>
-                    </DialogFooter>
-                  </DialogContent>
-                </form>
-              </Dialog>
-            </div>
-          </div>
-
-          <div>
-            <div className="apple rounded-lg flex items-center justify-between gap-5 px-3 py-4">
-              <div className="flex items-center gap-3">
-                <div className="bg-black rounded-lg px-4 py-1 text-xs">LAUNCH_30</div>
-                <p className="text-sm text-primary">30% Discount</p>
-                <p className="text-sm text-secondary">0/100 redeemed</p>
+              {/* Resusable card */}
+              <div className="apple rounded-lg flex items-center justify-between gap-5 px-4 py-3 mt-2 ">
+                <div className="flex items-center gap-3">
+                  <div className="bg-black rounded-lg px-4 py-1 text-xs">
+                    LAUNCH_30
+                  </div>
+                  <p className="text-sm text-primary">30% Discount</p>
+                  <p className="text-sm text-secondary">0/100 redeemed</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="bg-green-400/40 rounded-2xl px-4 py-1 text-xs">
+                    Active
+                  </div>
+                  <div>
+                    <CopyButton text="LAUNCH_30" />
+                  </div>
+                  <div>
+                    <Trash className="w-4 h-4 cursor-pointer text-red-400" />
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-green-400/40 rounded-2xl px-4 py-1 text-xs">Active</div>
-                <div><CopyButton text="LAUNCH_30" /></div>
-                <div><Trash className="w-4 h-4 cursor-pointer text-red-400" /></div>
+              <div className="apple rounded-lg flex items-center justify-between gap-5 px-4 py-3 mt-2 ">
+                <div className="flex items-center gap-3">
+                  <div className="bg-black rounded-lg px-4 py-1 text-xs">
+                    LAUNCH_30
+                  </div>
+                  <p className="text-sm text-primary">30% Discount</p>
+                  <p className="text-sm text-secondary">0/100 redeemed</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="bg-green-400/40 rounded-2xl px-4 py-1 text-xs">
+                    Active
+                  </div>
+                  <div>
+                    <CopyButton text="LAUNCH_30" />
+                  </div>
+                  <div>
+                    <Trash className="w-4 h-4 cursor-pointer text-red-400" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Preview section */}
+        <div className="apple rounded-2xl px-6 py-4 mt-3">
+          <div className="flex items-center justify-between">
+            <div className="flex gap-2">
+              <Wallet className="text-special" />
+              Estimated Instructor Payout Per Sale
+            </div>
+            <p className="text-secondary font-light text-xs">
+              Tier-A Creator (85/15 Split)
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 mt-2">
+
+            <div className="apple rounded-lg px-4 py-2">
+              <p className="text-secondary font-light text-sm">Course Base Price</p>
+              <h1 className="text-2xl font-bold text-primary">$89.99</h1>
+            </div>
+
+            <div className="apple rounded-lg px-4 py-2">
+              <p className="text-secondary font-light text-sm">Platform Fee (15%)</p>
+              <h1 className="text-2xl font-bold text-red-400/80">-$13.50</h1>
+            </div>
+
+            <div className="apple rounded-lg px-4 py-2">
+              <p className="text-special font-light text-sm">Your Net Earnings</p>
+              <h1 className="text-2xl font-bold text-special">$76.49</h1>
+            </div>
+          </div>
+
+          <p className="text-secondary font-light text-xs flex gap-2 mt-2"><Info className="text-special" size={15} />Payouts are automatically wired directly to your connected Stripe account on the 1st business day of every calendar month.</p>
         </div>
       </div>
 
