@@ -9,7 +9,7 @@ const Teacher_sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="px-6 py-6 h-screen w-full apple-strong">
+    <div className="h-full w-full overflow-hidden px-6 py-6 apple-strong">
       <div className="flex items-center justify-center gap-3 mt-2 mb-6">
         <div className="">
           <Image

@@ -5,7 +5,7 @@ import React from 'react'
 
 const Main_Navbar = () => {
   return (
-    <div className='w-screen h-full flex items-center justify-between px-10 py-2'>
+    <div className='w-full shrink-0 flex items-center justify-between px-10 py-2'>
         <div className=' flex items-center justify-center gap-4'>
             <Image src={"/images/Logo.png"} alt="Logo" width={50} height={50}/>
             <h2 className="text-primary text-2xl font-bold">Learn Stack</h2>
