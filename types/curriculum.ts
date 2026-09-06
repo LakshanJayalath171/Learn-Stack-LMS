@@ -28,6 +28,7 @@ export type Lesson = {
 export type Chapter = {
   id: string;
   title: string;
+  description?: string;
   order: number;
   lessons: Lesson[];
 };
