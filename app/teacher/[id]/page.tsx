@@ -1,6 +1,6 @@
-import React from 'react'
 import { Users , FileText, Star , BadgeDollarSign, CircleCheck} from 'lucide-react';
 import { Progress, ProgressLabel, ProgressValue } from "@/components/ui/progress"
+import { ChartLineDots } from '@/components/charts/LineCharts';
 
 const page = () => {
   return (
@@ -10,7 +10,7 @@ const page = () => {
           Welcome back, Alex 👋
         </h1>
         <p className="text-secondary">
-          Here's what's happening with your courses today.
+          Here&apos;s what&apos;s happening with your courses today.
         </p>
       </div>
 
@@ -120,6 +120,11 @@ const page = () => {
             <h1 className="text-special font-light">Data Structures & Algorithms</h1>
           </div>
         </div>
+      </div>
+
+      <div className="apple rounded-2xl px-6 py-4 mt-3">
+        {/* chart component */}
+        <ChartLineDots footerText='Showing total students enrolled in the last 6 months'/>
       </div>
     </div>
   );

@@ -1,10 +1,13 @@
+'use client';
+
+import { useState } from 'react';
+
 //importing lucid react icons
-import { TvMinimalPlay , ImageUp , CircleCheck, Info} from 'lucide-react';
+import { TvMinimalPlay , ImageUp, Info} from 'lucide-react';
 
 // importing input group component from shadcn/ui
 import {
   InputGroup,
-  InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group"
 
@@ -20,6 +23,13 @@ import { Textarea } from "@/components/ui/textarea"
 
 
 const Information = () => {
+  const [selectedCategoryId, setSelectedCategoryId] = useState('');
+  const [selectedSubCategory, setSelectedSubCategory] = useState('');
+  const [tags, setTags] = useState(['JavaScript ES6+']);
+  const selectedCategory = course_categories.find(
+    (category) => category.id === selectedCategoryId
+  );
+
   return (
     <div className="bg-black/50 w-full h-full px-10 py-6 rounded-2xl">
       {/* header */}
@@ -69,7 +79,14 @@ const Information = () => {
                 <span className="text-secondary font-light my-1 text-xs">
                   Category
                 </span>
-                <NativeSelect>
+                <NativeSelect
+                  value={selectedCategoryId}
+                  onChange={(event) => {
+                    setSelectedCategoryId(event.target.value);
+                    setSelectedSubCategory('');
+                  }}
+                >
+                  <NativeSelectOption value="">Select category</NativeSelectOption>
                   {course_categories.map((category) => (
                     <NativeSelectOption key={category.id} value={category.id}>
                       {category.name}
@@ -82,18 +99,20 @@ const Information = () => {
                 <span className="text-secondary font-light my-1 text-xs">
                   Sub Category
                 </span>
-                <NativeSelect className="">
+                <NativeSelect
+                  className=""
+                  value={selectedSubCategory}
+                  onChange={(event) => setSelectedSubCategory(event.target.value)}
+                  disabled={!selectedCategory}
+                >
                   <NativeSelectOption value="">
-                    Select status
+                    {selectedCategory ? 'Select sub category' : 'Select a category first'}
                   </NativeSelectOption>
-                  <NativeSelectOption value="todo">Todo</NativeSelectOption>
-                  <NativeSelectOption value="in-progress">
-                    In Progress
-                  </NativeSelectOption>
-                  <NativeSelectOption value="done">Done</NativeSelectOption>
-                  <NativeSelectOption value="cancelled">
-                    Cancelled
-                  </NativeSelectOption>
+                  {selectedCategory?.subCategories.map((subCategory) => (
+                    <NativeSelectOption key={subCategory} value={subCategory}>
+                      {subCategory}
+                    </NativeSelectOption>
+                  ))}
                 </NativeSelect>
               </div>
             </div>
@@ -202,7 +221,32 @@ const Information = () => {
         </div>
 
         <div className="apple rounded-2xl flex items-center justify-start px-4 py-2 mt-2">
-          <div className='bg-primary-soft text-special rounded-2xl px-3 py-1 cursor-pointer'>JavaScript ES6+</div>
+          {tags.map((tag) => (
+            <button
+              key={tag}
+              type="button"
+              className="bg-primary-soft text-special rounded-2xl px-3 py-1 cursor-pointer mx-1"
+              onClick={() => setTags(tags.filter((currentTag) => currentTag !== tag))}
+            >
+              {tag}
+            </button>
+          ))}
+          <InputGroup className="max-w-xs ml-2">
+            <InputGroupInput
+              placeholder="Add a tag"
+              className="w-full h-full p-3"
+              onKeyDown={(event) => {
+                if (event.key !== 'Enter') return;
+
+                event.preventDefault();
+                const tag = event.currentTarget.value.trim();
+                if (tag && !tags.includes(tag)) {
+                  setTags([...tags, tag]);
+                  event.currentTarget.value = '';
+                }
+              }}
+            />
+          </InputGroup>
         </div>
       </div>
     </div>

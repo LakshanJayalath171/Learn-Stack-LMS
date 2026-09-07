@@ -1,5 +1,7 @@
 import React from 'react'
-import { UsersRound , HandCoins , CircleCheck , Star, TrendingUp, TrendingDown , CodeXml, DatabaseX , Webhook} from 'lucide-react';
+import { UsersRound , HandCoins , CircleCheck , Star, TrendingUp, TrendingDown , CodeXml, DatabaseX , Webhook, BarChart} from 'lucide-react';
+import { BarChartActive } from '@/components/charts/Bar_Chart_Active';
+import { BarChartLabel } from '@/components/charts/Bar_Chart_Label';
 const Analytics = () => {
   return (
     <div>
@@ -8,6 +10,7 @@ const Analytics = () => {
         <p className='text-secondary font-light '>Track your growth and performance across all courses.</p>
       </div>
 
+      {/* card section */}
       <div className="grid grid-cols-4 gap-2 py-3">
 
         {/* overview card components*/}
@@ -73,8 +76,17 @@ const Analytics = () => {
         {/*  */}
       </div>
 
-      {/* card section */}
-      <div></div>
+      {/*  Chart section */}
+      <div className="my-3">
+        <div className='flex items-center justify-around gap-3'>
+          <div className='flex-1 apple rounded-2xl'>
+            <BarChartActive title="Active Students" />
+          </div>
+          <div className='flex-1 apple rounded-2xl'>
+            <BarChartLabel title="Earnings" />
+          </div>
+        </div>
+      </div>
 
       {/* Top perfoming course */}
       <div className="apple rounded-2xl px-2 py-6">
