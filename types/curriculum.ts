@@ -20,6 +20,7 @@ export type Lesson = {
   id: string;
   title: string;
   order: number;
+  isFreePreview?: boolean;
   lecturerNote?: LecturerNote;
   videos: Video[];
   pdfs: Pdf[];

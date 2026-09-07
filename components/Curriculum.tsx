@@ -31,90 +31,182 @@ const CurriculumCard = () => {
 
   return (
     <div className="w-full h-full">
-        <div>
-          <p className="text-special font-light text-xs">Add Content</p>
-          <h1 className="text-lg font-semibold text-primary">Lesson in Chapter 01</h1>
+      <div>
+        <p className="text-special font-light text-xs">Add Content</p>
+        <h1 className="text-lg font-semibold text-primary">
+          Lesson in Chapter 01
+        </h1>
+      </div>
+      <div className="flex items-center justify-between gap-2 mt-3">
+        <div
+          onClick={() => setLessonInput("video")}
+          className="flex items-center justify-center px-4 py-2"
+        >
+          <div
+            className={`cursor-pointer flex items-center justify-center gap-2 ${lessonInput === "video" ? "text-special" : "text-secondary"}`}
+          >
+            <Video />
+            Video Content
+          </div>
         </div>
-        <div className="flex items-center justify-between gap-2 mt-3">
-          <div onClick={() => setLessonInput('video')} className="flex items-center justify-center px-4 py-2">
-            <div className={`cursor-pointer flex items-center justify-center gap-2 ${lessonInput === 'video' ? 'text-special' : 'text-secondary'}`}><Video/>Video Content</div>
-          </div>
-          
-          <div onClick={() => setLessonInput('notes')} className="flex items-center justify-center px-4 py-2">
-            <div className={`cursor-pointer flex items-center justify-center gap-2 ${lessonInput === 'notes' ? 'text-special' : 'text-secondary'}`}><NotebookPen/>Lecturer Notes</div>
-          </div>
-          <div onClick={() => setLessonInput('pdf')} className="flex items-center justify-center px-4 py-2">
-            <div className={`cursor-pointer flex items-center justify-center gap-2 ${lessonInput === 'pdf' ? 'text-special' : 'text-secondary'}`}><FileText/>PDF Resources</div>
-          </div>
-        </div>
-        <div>
 
-          {/* video content div*/}
-          {lessonInput === 'video' && 
-          <div className=" w-full h-full px-3 py-3">
+        <div
+          onClick={() => setLessonInput("notes")}
+          className="flex items-center justify-center px-4 py-2"
+        >
+          <div
+            className={`cursor-pointer flex items-center justify-center gap-2 ${lessonInput === "notes" ? "text-special" : "text-secondary"}`}
+          >
+            <NotebookPen />
+            Lecturer Notes
+          </div>
+        </div>
+        <div
+          onClick={() => setLessonInput("pdf")}
+          className="flex items-center justify-center px-4 py-2"
+        >
+          <div
+            className={`cursor-pointer flex items-center justify-center gap-2 ${lessonInput === "pdf" ? "text-special" : "text-secondary"}`}
+          >
+            <FileText />
+            PDF Resources
+          </div>
+        </div>
+      </div>
+      <div>
+        {/* video content div*/}
+        {lessonInput === "video" && (
+          <div className="w-full h-full px-3 py-10">
             <div>
-              <h1 className="text-lg font-semibold text-primary">Lesson Video</h1>
+              <h1 className="text-lg font-semibold text-primary">
+                Lesson Video
+              </h1>
             </div>
 
-            <div className="w-full h-40 mt-3 rounded-2xl border-2 border-dashed border-[#2ED8CF]/80 flex items-center justify-center cursor-pointer">
-              <div className="">
+            <label
+              htmlFor="video-upload"
+              className="w-full h-40 mt-3 rounded-2xl border-2 border-dashed border-[#2ED8CF]/80 flex items-center justify-center cursor-pointer"
+            >
+              <div>
                 <div className="flex items-center justify-center">
-                  <div className=" bg-primary-soft rounded-full p-3">
-                    <MonitorUp className=" text-special" size={48} />
+                  <input
+                    type="file"
+                    accept="video/*"
+                    className="hidden"
+                    id="video-upload"
+                  />
+
+                  <div className="bg-primary-soft rounded-full p-3">
+                    <MonitorUp className="text-special" size={48} />
                   </div>
-                  
                 </div>
+
                 <div className="text-center">
-                  <p className="text-secondary text-sm mt-2 font-bold">Drag and drop your video here or click to browse</p>
-                  <p className="text-secondary text-xs mt-1 font-light">Supported formats: MP4, AVI, MOV</p>
+                  <p className="text-secondary text-sm mt-2 font-bold">
+                    Drag and drop your video here or click to browse
+                  </p>
+
+                  <p className="text-secondary text-xs mt-1 font-light">
+                    Supported formats: MP4, AVI, MOV
+                  </p>
                 </div>
               </div>
-            </div>
+            </label>
 
             <div className="flex items-center justify-between mt-3">
-              <p className="text-secondary text-sm font-semibold flex items-center gap-2"><CircleCheck className="text-special" size={16}/>custom_hooks_masterclass.mp4</p>
-              <p className="text-secondary text-sm font-semibold">100% Uploaded</p>
+              <p className="text-secondary text-sm font-semibold flex items-center gap-2">
+                <CircleCheck className="text-special" size={16} />
+                custom_hooks_masterclass.mp4
+              </p>
+
+              <p className="text-secondary text-sm font-semibold">
+                100% Uploaded
+              </p>
             </div>
 
             <div className="mt-2">
-              <input type="checkbox" />
-              <label className="text-secondary text-sm font-semibold ml-2">Mark as free preview</label>
+              <input type="checkbox" id="free-preview" />
+
+              <label
+                htmlFor="free-preview"
+                className="text-secondary text-sm font-semibold ml-2"
+              >
+                Mark as free preview
+              </label>
             </div>
-          </div>}
+          </div>
+        )}
 
-          {/* notes content div */}
-          {lessonInput === 'notes' && 
+        {/* notes content div */}
+        {lessonInput === "notes" && (
           <div className="mt-3">
-             <div>
-              <h2 className="text-lg font-semibold text-primary">Lecturer Notes</h2>
-             </div>
+            <div>
+              <h2 className="text-lg font-semibold text-primary">
+                Lecturer Notes
+              </h2>
+            </div>
 
-             <div>
-               <Tiptap/>
-             </div>
-          </div>}
+            <div>
+              <Tiptap />
+            </div>
+          </div>
+        )}
 
-          {/* pdf content div */}
-          {lessonInput === 'pdf' && 
-          <div className="mt-3">
-            <div className="w-full h-40 mt-3 rounded-2xl border-2 border-dashed border-[#2ED8CF]/80 flex items-center justify-center cursor-pointer">
-              <div className="">
+        {/* pdf content div */}
+        {lessonInput === "pdf" && (
+          <div className="w-full h-full px-3 py-10">
+            <div>
+              <h1 className="text-lg font-semibold text-primary">
+                Lesson Resources
+              </h1>
+            </div>
+
+            <label
+              htmlFor="pdf-upload"
+              className="w-full h-40 mt-3 rounded-2xl border-2 border-dashed border-[#2ED8CF]/80 flex items-center justify-center cursor-pointer py-3"
+            >
+              <div>
                 <div className="flex items-center justify-center">
-                  <div className=" bg-primary-soft rounded-full p-3">
-                    <FileText className=" text-special" size={48} />
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp,.txt,.rtf"
+                    className="hidden"
+                    id="pdf-upload"
+                  />
+
+                  <div className="bg-primary-soft rounded-full p-3">
+                    <FileText className="text-special" size={48} />
                   </div>
-                  
                 </div>
+
                 <div className="text-center">
-                  <p className="text-secondary text-sm mt-2 font-bold">Drag and drop your PDF here or click to browse</p>
-                  <p className="text-secondary text-xs mt-1 font-light">Supported formats: PDF</p>
+                  <p className="text-secondary text-sm mt-2 font-bold">
+                    Drag and drop your document here or click to browse
+                  </p>
+
+                  <p className="text-secondary text-xs mt-1 font-light">
+                    Supported formats: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX,
+                    ODT, ODS, ODP
+                  </p>
                 </div>
               </div>
+            </label>
+
+            <div className="flex items-center justify-between mt-3">
+              <p className="text-secondary text-sm font-semibold flex items-center gap-2">
+                <CircleCheck className="text-special" size={16} />
+                react_hooks_masterclass.pdf
+              </p>
+
+              <p className="text-secondary text-sm font-semibold">
+                100% Uploaded
+              </p>
             </div>
-          </div>}
-        </div>
+          </div>
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
 
