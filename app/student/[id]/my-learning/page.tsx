@@ -1,10 +1,11 @@
-import { FileText, CircleEllipsis, CircleCheck, Clock} from 'lucide-react';
-import Image from 'next/image';
+import { FileText, CircleEllipsis, CircleCheck, Clock } from "lucide-react";
+import Image from "next/image";
 import {
   Progress,
   ProgressLabel,
   ProgressValue,
-} from "@/components/ui/progress"
+} from "@/components/ui/progress";
+import Link from "next/link";
 
 const my_learning = () => {
   return (
@@ -68,75 +69,80 @@ const my_learning = () => {
         <div className="">
           {/* mapping cards */}
 
-          <div className="flex apple rounded-2xl mt-2">
-            <div className="">
-              <Image
-                alt="course thumnail"
-                src="/images/course01.png"
-                width={300}
-                height={200}
-              />
-            </div>
-
-            <div className=" px-2 py-3">
-              <h1 className="text-2xl font-bold text-primary ">
-                Introduction to Web Development
-              </h1>
-              <p className="text-secondary font-light mt-1">
-                Learn the basics of web development, including HTML, CSS, and
-                JavaScript.
-              </p>
-
-              <div className="mt-">
-                <Progress value={56} className="w-full max-w-sm">
-                  <ProgressLabel>Upload progress</ProgressLabel>
-                  <ProgressValue />
-                </Progress>
+          <Link href="/student/classroom/1">
+            <div className="flex apple rounded-2xl mt-2">
+              <div className="">
+                <Image
+                  alt="course thumnail"
+                  src="/images/course01.png"
+                  width={300}
+                  height={200}
+                />
               </div>
 
-              <div className="mt-2 ">
-                <button className="btn-primary cursor-pointer">
-                  Continue Learning
-                </button>
+              <div className=" px-2 py-3">
+                <h1 className="text-2xl font-bold text-primary ">
+                  Introduction to Web Development
+                </h1>
+                <p className="text-secondary font-light mt-1">
+                  Learn the basics of web development, including HTML, CSS, and
+                  JavaScript.
+                </p>
+
+                <div className="mt-">
+                  <Progress value={56} className="w-full max-w-sm">
+                    <ProgressLabel>Upload progress</ProgressLabel>
+                    <ProgressValue />
+                  </Progress>
+                </div>
+
+                <div className="mt-2 ">
+                  <button className="btn-primary cursor-pointer">
+                    Continue Learning
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="flex apple rounded-2xl mt-2">
-            <div className="">
-              <Image
-                alt="course thumnail"
-                src="/images/course04.png"
-                width={300}
-                height={200}
-              />
-            </div>
+          </Link>
 
-            <div className=" px-2 py-3">
-              <h1 className="text-2xl font-bold text-primary ">
-                Data Structures and Algorithms
-              </h1>
-              <p className="text-secondary font-light mt-1">
-                Learn the basics of data structures and algorithms, including 
-              </p>
-
-              <div className="mt-">
-                <Progress value={56} className="w-full max-w-sm">
-                  <ProgressLabel>Upload progress</ProgressLabel>
-                  <ProgressValue />
-                </Progress>
+          <Link href="/student/classroom/1">
+            <div className="flex apple rounded-2xl mt-2">
+              <div className="">
+                <Image
+                  alt="course thumnail"
+                  src="/images/course04.png"
+                  width={300}
+                  height={200}
+                />
               </div>
 
-              <div className="mt-2 ">
-                <button className="btn-primary cursor-pointer">
-                  Continue Learning
-                </button>
+              <div className=" px-2 py-3">
+                <h1 className="text-2xl font-bold text-primary ">
+                  Data Structures and Algorithms
+                </h1>
+                <p className="text-secondary font-light mt-1">
+                  Learn the basics of data structures and algorithms, including
+                </p>
+
+                <div className="mt-">
+                  <Progress value={56} className="w-full max-w-sm">
+                    <ProgressLabel>Upload progress</ProgressLabel>
+                    <ProgressValue />
+                  </Progress>
+                </div>
+
+                <div className="mt-2 ">
+                  <button className="btn-primary cursor-pointer">
+                    Continue Learning
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default my_learning
+export default my_learning;

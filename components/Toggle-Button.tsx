@@ -16,7 +16,7 @@ const Toggle = () => {
       <Button
         type="button"
         size="icon"
-        className="cursor-pointer"
+        className="cursor-pointer rounded-full"
         aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
