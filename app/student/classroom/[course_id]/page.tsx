@@ -32,101 +32,71 @@ import {
 } from "@/components/ui/progress";
 
 // importing collapsible component from shadcn/ui
-import { ChevronRightIcon, FileIcon, FolderIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-type FileTreeItem = { name: string } | { name: string; items: FileTreeItem[] };
+import { CourseExplorer, type CourseSection } from "@/components/CourseExplorer";
+import { Card, CardContent } from "@/components/ui/card";
 
 const Page = () => {
   const [activeTab, setActiveTab] = React.useState("resources");
+  const [activeLessonId, setActiveLessonId] = React.useState("react-components");
 
-  const fileTree: FileTreeItem[] = [
+  const courseSections: CourseSection[] = [
     {
-      name: "chapter 01",
-      items: [
-        {
-          name: "lesson 01",
-          items: [
-            { name: "lesson-01-notes.mp4" },
-            { name: "lesson-01-resources.zip" },
-          ],
-        },
-        {
-          name: "lesson 02",
-          items: [
-            { name: "lesson-02-notes.mp4" },
-            { name: "lesson-02-resources.zip" },
-          ],
-        }
+      id: "html-css",
+      number: 1,
+      title: "HTML & CSS Fundamentals",
+      completedLessons: 5,
+      totalLessons: 5,
+      lessons: [
+        { id: "html-intro", title: "Introduction to HTML", type: "video", duration: "15:30", completed: true },
+        { id: "css-basics", title: "CSS Fundamentals", type: "reading", completed: true },
       ],
     },
     {
-      name: "chapter 02",
-      items: [
-        { name: "lesson 01", items: [{ name: "lesson-01-notes.mp4" }, { name: "lesson-01-resources.zip" }] },
-        { name: "lesson 02", items: [{ name: "lesson-02-notes.mp4" }, { name: "lesson-02-resources.zip" }] },
+      id: "javascript",
+      number: 2,
+      title: "JavaScript Basics",
+      completedLessons: 8,
+      totalLessons: 8,
+      lessons: [
+        { id: "js-syntax", title: "JavaScript Syntax", type: "video", duration: "22:10", completed: true },
+        { id: "js-exercise", title: "Syntax Practice", type: "coding", completed: true },
       ],
     },
     {
-      name: "chapter 03",
-      items: [
-        { name: "lesson 01", items: [{ name: "lesson-01-notes.mp4" }, { name: "lesson-01-resources.zip" }] },
-        { name: "lesson 02", items: [{ name: "lesson-02-notes.mp4" }, { name: "lesson-02-resources.zip" }] },
+      id: "advanced-javascript",
+      number: 3,
+      title: "Advanced JavaScript (ES6+)",
+      completedLessons: 12,
+      totalLessons: 12,
+      lessons: [
+        { id: "es6", title: "Modern JavaScript with ES6", type: "video", duration: "34:20", completed: true },
+        { id: "async-js", title: "Async JavaScript", type: "reading", completed: true },
       ],
     },
     {
-      name: "chapter 04",
-      items: [
-        { name: "lesson 01", items: [{ name: "lesson-01-notes.mp4" }, { name: "lesson-01-resources.zip" }] },
-        { name: "lesson 02", items: [{ name: "lesson-02-notes.mp4" }, { name: "lesson-02-resources.zip" }] },
+      id: "react-core",
+      number: 4,
+      title: "React.js Core Concepts",
+      completedLessons: 2,
+      totalLessons: 10,
+      lessons: [
+        { id: "react-intro", title: "Introduction to React", type: "video", duration: "15:30", completed: true },
+        { id: "react-setup", title: "Setting up the Environment", type: "reading", completed: true },
+        { id: "react-components", title: "React Components and Props", type: "video", duration: "58:30" },
+        { id: "react-state", title: "State and Lifecycle", type: "video", duration: "45:12", locked: true },
+        { id: "react-events", title: "Handling Events", type: "coding", locked: true },
       ],
-    }
+    },
+    {
+      id: "hooks-context",
+      number: 5,
+      title: "Hooks and Context API",
+      completedLessons: 0,
+      totalLessons: 8,
+      locked: true,
+      lessons: [],
+    },
   ];
-
-  const renderItem = (fileItem: FileTreeItem) => {
-    if ("items" in fileItem) {
-      return (
-        <Collapsible key={fileItem.name}>
-          <CollapsibleTrigger
-            render={
-              <Button
-                variant="ghost"
-                size="sm"
-                className="group w-full justify-start transition-none hover:bg-accent hover:text-accent-foreground"
-              >
-                <ChevronRightIcon className="transition-transform group-data-[state=open]:rotate-90" />
-                <FolderIcon />
-                {fileItem.name}
-              </Button>
-            }
-          />
-          <CollapsibleContent className="mt-1 ml-5 style-lyra:ml-4">
-            <div className="flex flex-col gap-1">
-              {fileItem.items.map((child) => renderItem(child))}
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
-      );
-    }
-    return (
-      <Button
-        key={fileItem.name}
-        variant="link"
-        size="sm"
-        className="w-full justify-start gap-2 text-foreground"
-      >
-        <FileIcon />
-        <span>{fileItem.name}</span>
-      </Button>
-    );
-  };
 
   return (
     <div>
@@ -406,22 +376,16 @@ const Page = () => {
             {/* course content section */}
            
             <div>
-              <Card className="mx-auto w-full max-w-[16rem] gap-2" size="sm">
-                <CardHeader>
-                  <div>
-                    <h1 className="text-lg font-bold ">Course Content</h1>
-                    <div className="flex items-center justify-start gap-2">
-                      <div className="bg-primary-soft px-4 py-1 rounded-2xl text-xs">In Progress</div>
-                      <p className="text-xs text-secondary font-light">
-                        42 / 65 Lessons
-                      </p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent > 
-                  <div className="flex flex-col gap-1 ">
-                    {fileTree.map((item) => renderItem(item))}
-                  </div>
+              <Card className="mx-auto w-full max-w-[20rem] gap-2 border-0 bg-transparent p-0 shadow-none" size="sm">
+                <CardContent className="p-0">
+                  <CourseExplorer
+                    sections={courseSections}
+                    completedLessons={42}
+                    totalLessons={65}
+                    activeLessonId={activeLessonId}
+                    defaultOpenSectionId="react-core"
+                    onLessonSelect={(lesson) => setActiveLessonId(lesson.id)}
+                  />
                 </CardContent>
               </Card>
             </div>
