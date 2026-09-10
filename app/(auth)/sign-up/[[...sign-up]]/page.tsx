@@ -4,6 +4,7 @@ import React from "react"
 import Toggle from "@/components/Toggle-Button"
 import Image from "next/image"
 import { CircleCheck, GraduationCap , Presentation,MoveRight,LockKeyholeOpen} from 'lucide-react';
+import { SignUp } from "@clerk/nextjs";
 
 const sign_up = () => {
 
@@ -44,7 +45,7 @@ const sign_up = () => {
 
       {/* selector */}
 
-      <div className="grid grid-cols-2 gap-3 px-6 py-4 ">
+      <div className={`grid grid-cols-2 gap-3 px-6 py-4 ${signIn ? "hidden" : ""}`}>
         {/* student section */}
         <div className="flex items-center justify-end">
           <div
@@ -101,7 +102,7 @@ const sign_up = () => {
             {/* button */}
             <div className="flex items-center justify-center my-4">
               <button 
-              onClick={()=>setSignIn(true)} className="w-full h-full btn-primary flex items-center gap-3 cursor-pointer">
+               className="w-full h-full btn-primary flex items-center gap-3 cursor-pointer">
                 Sign Up as Student
                 <MoveRight size={20} className="ml-2" />
               </button>
@@ -163,7 +164,7 @@ const sign_up = () => {
             {/* button */}
             <div className="flex items-center justify-center my-4">
               <button
-              onClick={()=>setSignIn(true)} className="w-full h-full btn-primary flex items-center gap-3 cursor-pointer">
+               className="w-full h-full btn-primary flex items-center gap-3 cursor-pointer">
                 Sign Up as Student
                 <MoveRight size={20} className="ml-2" />
               </button>
@@ -171,6 +172,21 @@ const sign_up = () => {
           </div>
         </div>
       </div>
+
+      {/* main button */}
+
+      <div  className={`flex items-center justify-center my-4 ${signIn ? "hidden" : ""}`}>
+        {selectedRole && (<button onClick={()=>setSignIn(true)} className="btn-primary flex items-center gap-3 cursor-pointer px-4 py-3">
+        Sign Up as {selectedRole}
+        <MoveRight size={20} className="ml-2" />
+      </button>)}
+      </div>
+
+      <div className={`flex items-center justify-center my-4 ${signIn ? "" : "hidden"}`}>
+        <SignUp unsafeMetadata={{role:selectedRole}}/>
+      </div>
+
+      {/* security info */}
 
       <div className="flex items-center justify-center gap-2 text-sm text-secondary my-4">
         <LockKeyholeOpen size={20} className="text-special" />
