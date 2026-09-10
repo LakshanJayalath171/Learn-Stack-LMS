@@ -1,7 +1,12 @@
+'use client'
+
 import Toggle from "@/components/Toggle-Button";
 import Link from "next/link";
 import Image from 'next/image'
 import React from 'react'
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { Show } from "@clerk/react";
+
 
 const Main_Navbar = () => {
   return (
@@ -30,8 +35,15 @@ const Main_Navbar = () => {
 
         <div className="flex items-center justify-center gap-2">
             <Toggle />
-            <button className='btn-secondary px-4 py-2 rounded-full'>Login</button>
-            <button className='btn-primary  px-4 py-2 rounded-full'>Get Started</button>
+            <Show when={"signed-out"}>
+                <Link href="/sign-in"><button className='btn-secondary px-4 py-2 rounded-full cursor-pointer' >Login</button></Link>
+
+                <Link href="/sign-up"><button className='btn-primary px-4 py-2 rounded-full cursor-pointer' >Sign Up</button></Link>
+                
+            </Show >
+            <Show when={"signed-in"}>
+                <UserButton />
+            </Show>
         </div>
 
     </div>

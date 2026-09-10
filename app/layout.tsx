@@ -5,6 +5,7 @@ import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toast";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -19,7 +20,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
+    <ClerkProvider>
+      <html
       lang="en"
       suppressHydrationWarning
       className={`${plusJakartaSans.variable} h-full antialiased`}
@@ -49,5 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
+    
   );
 }
